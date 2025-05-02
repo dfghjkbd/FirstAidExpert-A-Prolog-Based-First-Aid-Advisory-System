@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advice Result</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f7f9fc;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #80d0c7, #ffffff);
+        }
+
+        .container {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 650px;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .header {
+            margin-bottom: 10px; /* Reduced space between header and the input section */
+        }
+
+        .header h1 {
+            font-size: 36px;
+            color: #00796b;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .header p {
+            font-size: 18px;
+            color: #333;
+            margin-top: 5px;
+        }
+
+        .advice {
+            background-color: #ffffff;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 15px;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            font-size: 16px;
+            color: #333;
+            margin-top: 20px;
+        }
+
+        .advice h3 {
+            font-size: 24px;
+            color: #00796b;
+            margin-bottom: 10px;
+        }
+
+        .partition {
+            width: 80%;
+            height: 2px;
+            background-color: #00796b;
+            margin: 20px auto;
+            border-radius: 50px;
+        }
+
+        .emergency {
+            font-size: 18px;
+            color: red;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        a {
+            display: block;
+            margin-top: 30px;
+            font-size: 18px;
+            color: #ffffff;
+            background-color: #00796b;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #004d40;
+        }
+
+        ul {
+            text-align: left;
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>First Aid Expert System</h1>
+            <p>Here is the advice based on your symptoms</p>
+        </div>
+
+        <!-- Your Input Section -->
+        <div class="advice">
+            <h3>Your Input:</h3>
+            <p>{{ symptom }}</p>
+        </div>
+
+        <!-- Partition Line -->
+        <div class="partition"></div>
+
+        <!-- Advice Section -->
+        <div class="advice">
+            <h3>First Aid Advice:</h3>
+            <ul>
+                {% if advice_list %}
+                    {% for advice in advice_list %}
+                        <li>
+                            {% set parts = advice.split('Watch:') %}
+                            {{ parts[0] }}
+                            {% if parts|length > 1 %}
+                                <a href="{{ parts[1] | trim }}" target="_blank">Watch Video</a>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                {% else %}
+                    <li>Sorry, no advice found for the given symptoms.</li>
+                {% endif %}
+                </ul>
+                
+            {% if emergency %}
+            <p class="emergency">Please seek medical help if no improvement seen !</p>
+            {% endif %}
+        </div>
+
+        <div class="decorative-divider"></div>
+
+        <a href="/">Back to Home</a>
+    </div>
+</body>
+</html>

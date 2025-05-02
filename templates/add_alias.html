@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add New Symptom Alias</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #ffffcc; text-align: center; padding: 50px; }
+        input { padding: 10px; margin: 10px; width: 300px; }
+        input[type="submit"] { width: 200px; }
+        a { display: block; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Add a New Symptom Alias</h1>
+    <form action="/add_alias" method="post">
+        <input type="text" name="main_symptom" placeholder="Main Symptom (e.g., headache)" required><br>
+        <input type="text" name="new_alias" placeholder="New Alias (e.g., brain pain)" required><br>
+        <input type="submit" value="Add Alias">
+    </form>
+    <a href="/">Back to Home</a>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Symptom Tracker</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #fff0f5; text-align: center; padding: 50px; }
+        ul { list-style: none; padding: 0; }
+        li { background: #eee; margin: 10px auto; padding: 10px; width: 60%; border-radius: 5px; }
+        a { display: block; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Symptom Tracker</h1>
+    <ul>
+        {% for item in history %}
+        <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+    <a href="/">Back to Home</a>
+</body>
+</html>

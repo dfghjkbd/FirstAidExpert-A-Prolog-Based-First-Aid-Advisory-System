@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Aid Expert System</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f7f9fc;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #80d0c7, #ffffff);
+        }
+
+        .container {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 650px;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .header {
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 36px;
+            color: #00796b;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .header p {
+            font-size: 16px;
+            color: #444;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input[type="text"], select {
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 25px;
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+            width: 80%;
+            max-width: 500px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus, select:focus {
+            border-color: #00796b;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="submit"] {
+            padding: 14px 30px;
+            font-size: 16px;
+            background-color: #00796b;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            width: 80%;
+            max-width: 500px;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #004d40;
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #00796b;
+        }
+
+        .footer a {
+            color: #00796b;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #004d40;
+        }
+
+     
+
+    .decorative-divider {
+        margin: 20px auto; /* Reduced top/bottom margin and auto for horizontal centering */
+        display: block; /* Ensures margin: auto works for horizontal centering */
+        width: 50%; /* Reduced width */
+        height: 1px; /* Reduced height */
+        background: red; /* Changed background color to red */
+        border-radius: 50px;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>First Aid Expert System</h1>
+            <p>Describe your symptoms and get instant advice</p>
+        </div>
+
+        <form action="/get_advice" method="post">
+            <input type="text" name="symptom" placeholder="Describe your symptoms..." required><br>
+            <select name="language">
+                <option value="en">English</option>
+                <option value="hi">Hindi</option>
+                <option value="es">Spanish</option>
+                <option value="fr">French</option>
+                <option value="mr">Marathi</option>
+                <option value="gu">Gujarati</option>
+                <option value="ta">Tamil</option>
+                <option value="te">Telugu</option>
+                <option value="bn">Bengali</option>
+                <option value="kn">Kannada</option>
+            </select><br>
+            <input type="submit" value="Get Advice">
+        </form>
+
+        <div class="decorative-divider"></div>
+
+        
+    </div>
+</body>
+</html>
